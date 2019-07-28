@@ -22,7 +22,7 @@ mysqli_select_db($con,'project') or die(mysqli_error($con));
 </head>
 <body>
 <br><br><br>
-<div class="container" style="border-radius: 0px 10px 10px 0px;">
+<div class="container" style="border-radius: 10px 10px 0px 0px;">
 
 <!-- start of content -->
 <?php  
@@ -56,9 +56,9 @@ $result1 = mysqli_query($con,$query1) or die(mysqli_error($con));
  		echo "<td>".$arr['id']."</td>";
  		echo "<td>".$arr['username']."</td>";
  		echo "<td>".$arr['user_pass']."</td>";
- 		echo "<td><a href='update_page.php?id=".$arr['id']."'>Edit</a></td>";
+ 		echo "<td><a href='backend/update_page.php?id=".$arr['id']."'>Edit</a></td>";
  		echo "<td><a href='backend/login_info_delete.php?id=".$arr['id']."' onclick=\"return confirm('are you sure you want to delete!');\">Delete</a></td>";
- 		echo "<td><a href='view.php?id=".$arr['id']."'>View</a></td>";
+ 		echo "<td><a href='login_info_view.php?id=".$arr['id']."'>View</a></td>";
  		echo "</tr>";
  	}
  	 ?>
@@ -100,9 +100,9 @@ $result2 = mysqli_query($con,$query2) or die(mysqli_error($con));
  		echo "<td>".$arr2['dob']."</td>";
  		echo "<td>".$arr2['username']."</td>";
  		echo "<td>".$arr2['user_pass']."</td>";
- 		echo "<td><a href='update_page.php?id=".$arr2['id']."'>Edit</a></td>";
+ 		echo "<td><a href='backend/update_page.php?id=".$arr2['id']."'>Edit</a></td>";
  		echo "<td><a href='backend/signup_info_delete.php?id=".$arr2['id']."' onclick=\"return confirm('are you sure you want to delete!');\">Delete</a></td>";
- 		echo "<td><a href='view.php?id=".$arr2['id']."'>View</a></td>";
+ 		echo "<td><a href='signup_info_view.php?id=".$arr2['id']."'>View</a></td>";
  		echo "</tr>";
  	}
  	 ?>
