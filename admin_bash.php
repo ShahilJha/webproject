@@ -10,8 +10,6 @@ else{
 <?php 
 $con = mysqli_connect('localhost','root','') or die(mysqli_error($con));
 mysqli_select_db($con,'project') or die(mysqli_error($con));
-$query1 = "SELECT * FROM login_info";
-$result1 = mysqli_query($con,$query1) or die(mysqli_error($con));
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,6 +25,10 @@ $result1 = mysqli_query($con,$query1) or die(mysqli_error($con));
 <div class="container" style="border-radius: 0px 10px 10px 0px;">
 
 <!-- start of content -->
+<?php  
+$query1 = "SELECT * FROM login_info";
+$result1 = mysqli_query($con,$query1) or die(mysqli_error($con));
+?>
 <div class="post-container">
 <div class="filler"></div>
 <div align="center" class="post-title"><h2>Admin Dashboard</h2></div>
@@ -55,7 +57,7 @@ $result1 = mysqli_query($con,$query1) or die(mysqli_error($con));
  		echo "<td>".$arr['username']."</td>";
  		echo "<td>".$arr['user_pass']."</td>";
  		echo "<td><a href='update_page.php?id=".$arr['id']."'>Edit</a></td>";
- 		echo "<td><a href='delete.php?id=".$arr['id']."' onclick=\"return confirm('are you sure you want to delete!');\">Delete</a></td>";
+ 		echo "<td><a href='backend/login_info_delete.php?id=".$arr['id']."' onclick=\"return confirm('are you sure you want to delete!');\">Delete</a></td>";
  		echo "<td><a href='view.php?id=".$arr['id']."'>View</a></td>";
  		echo "</tr>";
  	}
