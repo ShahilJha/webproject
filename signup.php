@@ -20,7 +20,7 @@
         <div class="filler"></div>
       <form method="POST" action="backend/signup_process.php"  style="margin-left: 12%;">
         <div class="login-user">Name:<br>
-          <input type="text" name="name" placeholder="Full Name">
+          <input type="text" name="name" placeholder="full_name">
         </div><br>
         <div class="login-user">Gender: <br>
           <div class="signup-radio-btn" style="margin-left: 15%;">

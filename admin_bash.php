@@ -32,8 +32,8 @@ $result1 = mysqli_query($con,$query1) or die(mysqli_error($con));
 <div align="center" class="post-title"><h2>Admin Dashboard</h2></div>
 <hr style="width: 80%; color: #f2f2f2;">
 <div class="filler"></div>
-<div align="center" class="post-title"><h2>Log-in Info</h2></div>
 <!-- start of log-in info -->
+<div align="center" class="post-title"><h2>Log-in Info</h2></div>
 <div class="admin_bash_table">
 <p align="center">
 <table border="1" cellspacing="0px" cellpadding="10px">
@@ -65,6 +65,50 @@ $result1 = mysqli_query($con,$query1) or die(mysqli_error($con));
 <div class="filler"></div>
 </div>
 <!-- end of log-in info -->
+
+<!-- start of signup user info info -->
+<?php  
+$query2 = "SELECT * FROM signup_info";
+$result2 = mysqli_query($con,$query2) or die(mysqli_error($con));
+?>
+<div align="center" class="post-title"><h2>Team Member Details</h2></div>
+<div class="admin_bash_table">
+<p align="center">
+<table border="1" cellspacing="0px" cellpadding="10px">
+ 	<tr>
+ 		<th rowspan="2">ID</th>
+ 		<th rowspan="2">Name</th>
+ 		<th rowspan="2">Gender</th>
+ 		<th rowspan="2">D.O.B.</th>
+ 		<th rowspan="2">Username</th>
+ 		<th rowspan="2">Password</th>
+ 		<th colspan="3">Action</th>
+ 	</tr>
+ 	<tr>
+ 		<th>Edit</th>
+ 		<th>Delete</th>
+ 		<th>View</th>
+ 	</tr>
+ 	<?php 
+ 	while($arr2 = mysqli_fetch_array($result2,MYSQLI_ASSOC)) {
+ 		echo "<tr>";
+ 		echo "<td>".$arr2['id']."</td>";
+ 		echo "<td>".$arr2['name']."</td>";
+ 		echo "<td>".$arr2['gender']."</td>";
+ 		echo "<td>".$arr2['dob']."</td>";
+ 		echo "<td>".$arr2['username']."</td>";
+ 		echo "<td>".$arr2['user_pass']."</td>";
+ 		echo "<td><a href='update_page.php?id=".$arr2['id']."'>Edit</a></td>";
+ 		echo "<td><a href='delete.php?id=".$arr2['id']."' onclick=\"return confirm('are you sure you want to delete!');\">Delete</a></td>";
+ 		echo "<td><a href='view.php?id=".$arr2['id']."'>View</a></td>";
+ 		echo "</tr>";
+ 	}
+ 	 ?>
+</table>
+</p>
+<div class="filler"></div>
+</div>
+<!-- end of signup user info info -->
 
 <!-- main container <div> -->
 <div class="filler"></div>
