@@ -35,6 +35,7 @@ $arr=mysqli_fetch_array($res,MYSQLI_ASSOC)
       <div class="filler"></div>
         <div class="filler"></div>
       <form method="POST" action="backend/signup_update_process.php"  style="margin-left: 12%;">
+        <div class="login-user"><input type="hidden" name="id" value='<?php echo $arr['id']; ?>'></div><br>
         <div class="login-user">Name:<br>
           <input type="text" name="name" value="<?php echo $arr['name'] ?>">
         </div><br>

@@ -34,6 +34,7 @@ $arr=mysqli_fetch_array($res,MYSQLI_ASSOC)
       <div class="filler"></div>
         <div class="filler"></div>
       <form method="POST" action="backend/login_update_process.php">
+        <div class="login-user"><input type="hidden" name="id" value='<?php echo $arr['id']; ?>'></div><br>
         <div class="login-user">Username:  <input type="text" name="username" value='<?php echo $arr['username']; ?>'></div><br>
         <div class="login-pass">Password:  <input type="password" name="password" value="<?php echo $arr['user_pass']; ?>"></div><br>
         <input type="submit" name="btn_login" value="Apply Edit"><br>
