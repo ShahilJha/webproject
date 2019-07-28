@@ -101,7 +101,7 @@ $result2 = mysqli_query($con,$query2) or die(mysqli_error($con));
  		echo "<td>".$arr2['username']."</td>";
  		echo "<td>".$arr2['user_pass']."</td>";
  		echo "<td><a href='update_page.php?id=".$arr2['id']."'>Edit</a></td>";
- 		echo "<td><a href='delete.php?id=".$arr2['id']."' onclick=\"return confirm('are you sure you want to delete!');\">Delete</a></td>";
+ 		echo "<td><a href='backend/signup_info_delete.php?id=".$arr2['id']."' onclick=\"return confirm('are you sure you want to delete!');\">Delete</a></td>";
  		echo "<td><a href='view.php?id=".$arr2['id']."'>View</a></td>";
  		echo "</tr>";
  	}
