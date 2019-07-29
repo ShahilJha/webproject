@@ -34,9 +34,8 @@ mysqli_select_db($con,'project') or die(mysqli_error($con));
         </div>
       <?php
       }
-      ?>
-            
-          </div>
+      ?>      
+    </div>
     <!-- end of slider -->
 
 
@@ -56,7 +55,22 @@ mysqli_select_db($con,'project') or die(mysqli_error($con));
       </div>
       <div class="post-col">
         <h2>News Post</h2><hr>
+        <?php  
+        $query2 = "SELECT * FROM news_and_notice ORDER BY id ASC LIMIT 2";
+        $result2 = mysqli_query($con,$query2) or die(mysqli_error($con));
+        ?>
+        <?php  
+        while ($arr2 = mysqli_fetch_array($result2,MYSQLI_ASSOC)) {
+        ?>
         <div class="news-col">
+          <h3 class="comma"><span><?php echo $arr2['n_title']; ?></span></h3>
+          <p><?php echo $arr2['n_short_description']; ?></p>
+          <button class="read-b"><a href="<?php echo $arr2['n_link']; ?>">read more&gt;&gt;</a></button>
+        </div>
+        <?php
+        }
+        ?>
+        <!-- <div class="news-col">
           <h3 class="comma"><span>Vacancy Announcement</span></h3>
           <p>We are hiring competent, qualified and experienced front-end developers.</p>
           <button class="read-b"><a href="news1.php">read more&gt;&gt;</a></button>
@@ -66,7 +80,7 @@ mysqli_select_db($con,'project') or die(mysqli_error($con));
           <h3 class="comma"><span>Maintainance Announcement</span></h3>
           <p>The website will be closed for the next few days.</p>
           <button class="read-b"><a href="news2.php">read more&gt;&gt;</a></button>
-        </div>
+        </div> -->
       </div>
     </div><hr align="center" class="gap-filler">
     <!-- end of post part -->
@@ -105,13 +119,14 @@ mysqli_select_db($con,'project') or die(mysqli_error($con));
         </p>
       </div>
 
+      <form method="POST" action="backend/newsletter_process.php">
       <div class="widget">
         <h2>grab our newsnewsletter</h2>
-        <input type="text" name="responder" placeholder="Name" id="h-name"><br>
-        <input type="email" name="responder-mail" placeholder="Email" id="h-mail"><br>
-        <input type="submit" name="submit" onclick="h_validate();">
+          <input type="text" name="responder" placeholder="Name" id="h-name"><br>
+          <input type="email" name="responder_mail" placeholder="Email" id="h-mail"><br>
+          <input type="submit" name="submit" onclick="h_validate();">
       </div>
-
+      </form>
     </div>
     <!-- End of widget section -->
 
