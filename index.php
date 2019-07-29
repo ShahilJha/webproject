@@ -41,18 +41,22 @@ mysqli_select_db($con,'project') or die(mysqli_error($con));
 
     <!-- start of post part -->
     <div class="post-row">
+      <?php
+      $query3 = "SELECT * FROM blog_post ORDER BY id DESC LIMIT 2";
+      $result3 = mysqli_query($con,$query3) or die(mysqli_error($con));
+      ?>
+      <?php  
+      while ($arr3 = mysqli_fetch_array($result3,MYSQLI_ASSOC)) {
+      ?>
       <div class="post-col">
-        <h2>Bungee Jumping</h2><hr>
-        <img src="image/bungee.jpg">
-        <p>Bungee jumping (also spelled bungy jumping, which is the usual spelling in New Zealand and several other countries) is an activity that involves jumping from a tall structure while connected to a large elastic cord.The tall structure is usually a fixed object, such as a building, bridge or crane; but it is also possible to jump from a movable object, such as a air-balloon or helicopter, that has the ability to hover above the ground..........</p>
-        <button class="read-b"><a href="bungee.php">read more&gt;&gt;</a></button>
+        <h2><?php echo $arr3['blog_title'] ?></h2><hr>
+        <img src="image/<?php echo $arr3['blog_img'] ?>">
+        <p><?php echo $arr3['blog_short_description'] ?>.........</p>
+        <button class="read-b"><a href="<?php echo $arr3['blog_link'] ?>">read more&gt;&gt;</a></button>
       </div>
-      <div class="post-col">
-        <h2>Hiking</h2><hr>
-        <img src="image/hike.jpg">
-        <p>Hiking is the preferred term, in Canada and the United States, for a long, vigorous walk, usually on trails (footpaths), in the countryside, while the word walking is used for shorter, particularly urban walks.On the other hand, in the United Kingdom, and the Republic of Ireland, the word "walking" is acceptable to describe all forms of walking, whether it is a walk in the park or backpacking in the Alps.........</p>
-        <button class="read-b"><a href="hike.php">read more&gt;&gt;</a></button>
-      </div>
+      <?php 
+      }
+      ?>
       <div class="post-col">
         <h2>News Post</h2><hr>
         <?php  
@@ -70,17 +74,6 @@ mysqli_select_db($con,'project') or die(mysqli_error($con));
         <?php
         }
         ?>
-        <!-- <div class="news-col">
-          <h3 class="comma"><span>Vacancy Announcement</span></h3>
-          <p>We are hiring competent, qualified and experienced front-end developers.</p>
-          <button class="read-b"><a href="news1.php">read more&gt;&gt;</a></button>
-        </div>
-
-        <div class="news-col">
-          <h3 class="comma"><span>Maintainance Announcement</span></h3>
-          <p>The website will be closed for the next few days.</p>
-          <button class="read-b"><a href="news2.php">read more&gt;&gt;</a></button>
-        </div> -->
       </div>
     </div><hr align="center" class="gap-filler">
     <!-- end of post part -->
@@ -103,11 +96,17 @@ mysqli_select_db($con,'project') or die(mysqli_error($con));
 
       <div class="widget">
         <h2>quick links to posts</h2>
-        <a href="bungee.php">Bungee Jumping</a><hr>
-        <a href="hike.php">Hiking</a><hr>
-        <a href="camping.php">Camping</a><hr>
-        <a href="paragliding.php">Paragliding</a><hr>
-        <a href="scuba.php">Scuba Diving</a>
+        <?php  
+        $query4 = "SELECT * FROM blog_post ORDER BY id ASC LIMIT 5";
+        $result4 = mysqli_query($con,$query4) or die(mysqli_error($con));
+        ?>
+        <?php 
+        while ($arr4 = mysqli_fetch_array($result4,MYSQLI_ASSOC)) {
+        ?>
+        <a href="<?php echo $arr4['blog_link']; ?>"><?php echo $arr4['blog_title']; ?></a><hr>
+        <?php  
+        }
+        ?>
       </div>
 
       <div class="widget">
