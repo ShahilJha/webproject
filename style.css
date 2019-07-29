@@ -140,7 +140,7 @@ body{
 }
 /*end of menu for other*/
 .slider-container{
-	height: 348px;
+	height: 400px; /*orevioulsy 348px;*/
 	width: 90%;
 	display: block;
 	position: relative;

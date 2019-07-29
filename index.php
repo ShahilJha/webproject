@@ -1,3 +1,7 @@
+<?php 
+$con = mysqli_connect('localhost','root','') or die(mysqli_error($con));
+mysqli_select_db($con,'project') or die(mysqli_error($con));
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,50 +14,28 @@
     <?php include("header.php"); ?>
 
     <!-- start of slider -->
+    <?php  
+    $query1 = "SELECT * FROM index_slider";
+    $result1 = mysqli_query($con,$query1) or die(mysqli_error($con));
+    ?>
     <div class="slider-container">
-            <div class="slider">
-              <img src="image/1.jpg">
-              <div class="text-container">
-                <p>Slider first</p>
-                <span>This is deatil information of first slide.</span>
-              </div>
+      <?php  
+      while ($arr = mysqli_fetch_array($result1,MYSQLI_ASSOC)) {
+      ?>
+        <div class="slider">
+          <img src="image/<?php echo $arr['slider_image_name'] ?>">
+          <div class="text-container">
+            <p><?php echo $arr['slider_title']; ?></p>
+            <span><?php echo $arr['slider_description']; ?></span>
+          </div>
 
-              <div class="pre" onclick="pre();"></div>
-              <div class="next" onclick="next();"></div>
-            </div>
-
-            <div class="slider">
-              <img src="image/2.jpg">
-              <div class="text-container">
-                <p>Slider second</p>
-                <span>This is deatil information of first slide.</span>
-              </div>
-
-              <div class="pre" onclick="pre();"></div>
-              <div class="next" onclick="next();"></div>
-            </div>
-
-            <div class="slider">
-              <img src="image/3.jpg">
-              <div class="text-container">
-                <p>Slider third</p>
-                <span>This is deatil information of first slide.</span>
-              </div>
-
-              <div class="pre" onclick="pre();"></div>
-              <div class="next" onclick="next();"></div>
-            </div>
-
-            <div class="slider">
-              <img src="image/4.jpg">
-              <div class="text-container">
-                <p>Slider fourth</p>
-                <span>This is deatil information of first slide.</span>
-              </div>
-
-              <div class="pre" onclick="pre();"></div>
-              <div class="next"  onclick="next();"></div>
-            </div>
+          <div class="pre" onclick="pre();"></div>
+          <div class="next" onclick="next();"></div>
+        </div>
+      <?php
+      }
+      ?>
+            
           </div>
     <!-- end of slider -->
 
