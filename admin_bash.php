@@ -112,6 +112,44 @@ $result2 = mysqli_query($con,$query2) or die(mysqli_error($con));
 </div>
 <!-- end of signup user info info -->
 
+<!-- start of slider post info  -->
+<?php  
+$query4 = "SELECT * FROM index_slider";
+$result4 = mysqli_query($con,$query4) or die(mysqli_error($con));
+?>
+<div align="center" class="post-title"><h2>Team Member Details</h2></div>
+<div class="admin_bash_table">
+<p align="center">
+<table border="1" cellspacing="0px" cellpadding="10px">
+ 	<tr>
+ 		<th rowspan="2">ID</th>
+ 		<th rowspan="2">Title</th>
+ 		<th rowspan="2">description</th>
+ 		<th colspan="3">Action</th>
+ 	</tr>
+ 	<tr>
+ 		<th>Edit</th>
+ 		<th>Delete</th>
+ 		<th>View</th>
+ 	</tr>
+ 	<?php 
+ 	while($arr4 = mysqli_fetch_array($result4,MYSQLI_ASSOC)) {
+ 		echo "<tr>";
+ 		echo "<td>".$arr4['id']."</td>";
+ 		echo "<td>".$arr4['slider_title']."</td>";
+ 		echo "<td>".$arr4['slider_description']."</td>";
+ 		echo "<td><a href='signup_update_page.php?id=".$arr4['id']."'>Edit</a></td>";
+ 		echo "<td><a href='backend/slider_delete.php?id=".$arr4['id']."' onclick=\"return confirm('are you sure you want to delete!');\">Delete</a></td>";
+ 		echo "<td><a href='slider_view.php?id=".$arr4['id']."'>View</a></td>";
+ 		echo "</tr>";
+ 	}
+ 	 ?>
+</table>
+</p>
+<div class="filler"></div>
+</div>
+<!-- end of slider post info -->
+
 <!-- start of newsletter info -->
 <?php  
 $query3 = "SELECT * FROM newsletter";
