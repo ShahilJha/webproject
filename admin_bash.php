@@ -112,6 +112,38 @@ $result2 = mysqli_query($con,$query2) or die(mysqli_error($con));
 </div>
 <!-- end of signup user info info -->
 
+<!-- start of newsletter info -->
+<?php  
+$query3 = "SELECT * FROM newsletter";
+$result3 = mysqli_query($con,$query3) or die(mysqli_error($con));
+?>
+<div align="center" class="post-title"><h2>Newsletter Info</h2></div>
+<div class="admin_bash_table">
+<p align="center">
+<table border="1" cellspacing="0px" cellpadding="10px">
+ 	<tr>
+ 		<th>ID</th>
+ 		<th>Name</th>
+ 		<th>Email Address</th>
+ 		<th>Action</th>
+ 	</tr>
+ 	<?php 
+ 	while($arr3 = mysqli_fetch_array($result3,MYSQLI_ASSOC)) {
+ 		echo "<tr>";
+ 		echo "<td>".$arr3['id']."</td>";
+ 		echo "<td>".$arr3['name']."</td>";
+ 		echo "<td>".$arr3['mail']."</td>";
+ 		echo "<td><a href='backend/newsletter_info_delete.php?id=".$arr3['id']."' onclick=\"return confirm('are you sure you want to delete!');\">Delete</a></td>";
+ 		
+ 		echo "</tr>";
+ 	}
+ 	 ?>
+</table>
+</p>
+<div class="filler"></div>
+</div>
+<!-- end of newsletter info -->
+
 <!-- main container <div> -->
 <div class="filler"></div>
 </div>
