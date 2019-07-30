@@ -138,7 +138,7 @@ $result4 = mysqli_query($con,$query4) or die(mysqli_error($con));
  		echo "<td>".$arr4['id']."</td>";
  		echo "<td>".$arr4['slider_title']."</td>";
  		echo "<td>".$arr4['slider_description']."</td>";
- 		echo "<td><a href='signup_update_page.php?id=".$arr4['id']."'>Edit</a></td>";
+ 		echo "<td><a href='slider_update_page.php?id=".$arr4['id']."'>Edit</a></td>";
  		echo "<td><a href='backend/slider_delete.php?id=".$arr4['id']."' onclick=\"return confirm('are you sure you want to delete!');\">Delete</a></td>";
  		echo "<td><a href='slider_view.php?id=".$arr4['id']."'>View</a></td>";
  		echo "</tr>";
