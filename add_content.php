@@ -40,10 +40,10 @@ mysqli_select_db($con,'project') or die(mysqli_error($con));
 <div align="center" class="post-title"><h2>Content Adding Page</h2></div>
 <hr style="width: 80%; color: #f2f2f2;">
 <div class="filler"></div>
-
 <div class="login-style">
       <div class="filler"></div>
-        <div class="filler"></div>
+        <div align="center" class="post-title"><h3>Add slide</h3></div>
+        <hr>
       <form method="POST" action="backend/add_slider_process.php" enctype="multipart/form-data">
         <div class="login-user">Title  <input type="text" name="title"></div><br>
         <div class="login-pass">Short Description: <br> <textarea cols="45" rows="3" name="description"></textarea><br><br>
