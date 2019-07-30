@@ -117,7 +117,7 @@ $result2 = mysqli_query($con,$query2) or die(mysqli_error($con));
 $query4 = "SELECT * FROM index_slider";
 $result4 = mysqli_query($con,$query4) or die(mysqli_error($con));
 ?>
-<div align="center" class="post-title"><h2>Team Member Details</h2></div>
+<div align="center" class="post-title"><h2>Slider Details</h2></div>
 <div class="admin_bash_table">
 <p align="center">
 <table border="1" cellspacing="0px" cellpadding="10px">
