@@ -15,7 +15,7 @@ mysqli_select_db($con,'project') or die(mysqli_error($con));
 
     <!-- start of slider -->
     <?php  
-    $query1 = "SELECT * FROM index_slider";
+    $query1 = "SELECT * FROM index_slider ORDER BY id DESC LIMIT 4";
     $result1 = mysqli_query($con,$query1) or die(mysqli_error($con));
     ?>
     <div class="slider-container">
