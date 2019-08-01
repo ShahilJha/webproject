@@ -150,6 +150,40 @@ $result4 = mysqli_query($con,$query4) or die(mysqli_error($con));
 </div>
 <!-- end of slider post info -->
 
+<!-- start of contact info -->
+<?php  
+$query5 = "SELECT * FROM contact_info";
+$result5 = mysqli_query($con,$query5) or die(mysqli_error($con));
+?>
+<div align="center" class="post-title"><h2>People who want to contact us</h2></div>
+<div class="admin_bash_table">
+<p align="center">
+<table border="1" cellspacing="0px" cellpadding="10px">
+ 	<tr>
+ 		<th>ID</th>
+ 		<th>Name</th>
+ 		<th>Email</th>
+ 		<th>Comment</th>
+ 		<th>Action</th>
+ 	</tr>
+ 	<?php 
+ 	while($arr5 = mysqli_fetch_array($result5,MYSQLI_ASSOC)) {
+ 		echo "<tr>";
+ 		echo "<td>".$arr5['contact_id']."</td>";
+ 		echo "<td>".$arr5['name']."</td>";
+ 		echo "<td>".$arr5['email']."</td>";
+ 		echo "<td>".$arr5['cmmt']."</td>";
+ 		echo "<td><a href='backend/contact_delete.php?contact_id=".$arr5['contact_id']."' onclick=\"return confirm('are you sure you want to delete!');\">Delete</a></td>";
+ 		
+ 		echo "</tr>";
+ 	}
+ 	 ?>
+</table>
+</p>
+<div class="filler"></div>
+</div>
+<!-- end of contact info -->
+
 <!-- start of newsletter info -->
 <?php  
 $query3 = "SELECT * FROM newsletter";

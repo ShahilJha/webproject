@@ -8,6 +8,7 @@ mysqli_select_db($con,'project') or die(mysqli_error($con));
   <title>Home</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="control_ribbon_style.css">
+  <link rel="stylesheet" type="text/css" href="slider_style.css">
 </head>
 <body onload="display();">
 

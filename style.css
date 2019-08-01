@@ -179,7 +179,7 @@ body{
 .slider-container>.slider>.pre:hover, .slider-container>.slider>.next:hover{
 	background-color: rgba(0,0,0,0.1);
 }
-/*.slider-container>.slider>.pre, .slider-container>.slider>.next{
+.slider-container>.slider>.pre, .slider-container>.slider>.next{
 	width: 60px;
 	height: 100%;
 	cursor: pointer;
@@ -189,7 +189,7 @@ body{
 	background-size: 60px 60px;
 	background-repeat: no-repeat;
 	background-position: center;
-}*/
+}
 .pre{
 	transform: rotate(0deg);
 }
